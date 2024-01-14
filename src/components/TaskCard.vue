@@ -32,7 +32,7 @@ const comp = ref(props.completed);
         <font-awesome-icon icon="fa-solid fa-trash-can" />
       </button>
     </div>
-    <div>
+    <div :class="{ ruled: comp }">
       <h2>{{ title }}</h2>
       <p>{{ desc }}</p>
       <p :class="{
@@ -104,6 +104,10 @@ const comp = ref(props.completed);
 
   .danger {
     color: var(--love);
+  }
+
+  .ruled {
+    text-decoration: line-through;
   }
 }
 </style>
