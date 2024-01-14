@@ -1,0 +1,35 @@
+@mixin linkButton {
+  @include radiusVariants;
+
+  padding: $space-2xs;
+
+  font-size: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+  text-align: center;
+
+  cursor: pointer;
+  color: var(--text);
+  background: var(--hl-med);
+  border: $border transparent;
+
+  &:hover {
+    filter: brightness(80%);
+  }
+}
+
+@mixin linkButton2 {
+  @include radiusVariants;
+
+  padding: $space-2xs;
+
+  font-size: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+  text-align: center;
+
+  cursor: pointer;
+  color: var(--txt);
+  background: var(--bg-sec-a);
+  border: $border var(--bg-ter);
+}

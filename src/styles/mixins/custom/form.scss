@@ -1,0 +1,37 @@
+@mixin input {
+  // set radius variants
+  @include radiusVariants;
+
+  overflow: hidden;
+  padding: $space-2xs;
+
+  font-size: inherit;
+  border: none;
+  outline: none;
+
+  border: $border var(--pine);
+  background: var(--surface);
+  color: var(--text);
+}
+
+@mixin label {
+  font-size: inherit;
+}
+
+@mixin submit {
+  // set radius variants
+  @include radiusVariants;
+
+  padding: $space-2xs;
+
+  font-size: inherit;
+  font-weight: 700;
+
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  border: $border var(--bg-ter);
+  background: var(--fg-pri);
+  color: var(--txt);
+}
