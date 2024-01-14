@@ -1,5 +1,6 @@
 <script setup>
 defineProps({
+  name: String,
   update: Function,
   label: String,
   placeholder: String,
@@ -10,8 +11,8 @@ defineProps({
 
 <template>
   <div class="box">
-    <label for="label">{{ label || "" }}</label>
-    <input @input="update" :class="variant" type="text" :placeholder="placeholder" :id="label"
+    <label :for="name">{{ label || "" }}</label>
+    <input @input="update" :class="variant" type="text" :placeholder="placeholder" :id="name"
       :required="required || false" />
   </div>
 </template>
