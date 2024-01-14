@@ -77,13 +77,13 @@ tick.value = !tick.value;
                 onCheck(task, comp);
                 tick = !tick;
               }
-              " />
+              " :on-delete="() => deleteTask(task)" />
         </template>
       </template>
 
       <!-- else render no incomplete tasks -->
       <template v-else>
-        <h3 class="info">No complete tasks</h3>
+        <h3 class="info">No completed tasks</h3>
       </template>
     </template>
 
@@ -97,7 +97,7 @@ tick.value = !tick.value;
                 onCheck(task, comp);
                 tick = !tick;
               }
-              " />
+              " :on-delete="() => deleteTask(task)" />
         </template>
       </template>
 
@@ -112,6 +112,10 @@ tick.value = !tick.value;
 <style lang="scss" scoped>
 @import "src/styles/mixins/@_main.scss";
 @import "src/styles/variables/@_main.scss";
+
+h3 {
+  margin-top: $space-xs;
+}
 
 .todo {
   max-width: 768px;
@@ -138,9 +142,5 @@ tick.value = !tick.value;
     color: var(--text);
     padding: $space-2xs;
   }
-}
-
-.info {
-  margin: $space-s, 0;
 }
 </style>
