@@ -52,7 +52,10 @@ tick.value = !tick.value;
       </button>
     </div>
 
-    <AddTask :addTask="addTask" />
+    <!-- show add task only if current tab is todo -->
+    <template v-if="currentTab === 'todo'">
+      <AddTask :addTask="addTask" />
+    </template>
 
     <!-- if current tab is todo display all task cards -->
     <template v-if="currentTab === 'todo'">
@@ -80,7 +83,7 @@ tick.value = !tick.value;
 
       <!-- else render no incomplete tasks -->
       <template v-else>
-        <h3>No complete tasks</h3>
+        <h3 class="info">No complete tasks</h3>
       </template>
     </template>
 
@@ -100,7 +103,7 @@ tick.value = !tick.value;
 
       <!-- else render no incomplete tasks -->
       <template v-else>
-        <h3>No incomplete tasks</h3>
+        <h3 class="info">No incomplete tasks</h3>
       </template>
     </template>
   </div>
@@ -135,5 +138,9 @@ tick.value = !tick.value;
     color: var(--text);
     padding: $space-2xs;
   }
+}
+
+.info {
+  margin: $space-s, 0;
 }
 </style>
