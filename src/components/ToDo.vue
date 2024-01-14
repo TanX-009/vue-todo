@@ -54,7 +54,11 @@ tick.value = !tick.value;
 
     <!-- show add task only if current tab is todo -->
     <template v-if="currentTab === 'todo'">
-      <AddTask :addTask="addTask" />
+      <AddTask :addTask="(task) => {
+          addTask(task);
+          tick = !tick;
+        }
+        " />
     </template>
 
     <!-- if current tab is todo display all task cards -->
@@ -64,7 +68,11 @@ tick.value = !tick.value;
             onCheck(task, comp);
             tick = !tick;
           }
-          " :on-delete="() => deleteTask(task)" />
+          " :on-delete="() => {
+      deleteTask(task);
+      tick = !tick;
+    }
+    " />
     </template>
 
     <!-- else if current tab is completed display only completed cards -->
@@ -77,7 +85,11 @@ tick.value = !tick.value;
                 onCheck(task, comp);
                 tick = !tick;
               }
-              " :on-delete="() => deleteTask(task)" />
+              " :on-delete="() => {
+      deleteTask(task);
+      tick = !tick;
+    }
+    " />
         </template>
       </template>
 
@@ -97,7 +109,11 @@ tick.value = !tick.value;
                 onCheck(task, comp);
                 tick = !tick;
               }
-              " :on-delete="() => deleteTask(task)" />
+              " :on-delete="() => {
+      deleteTask(task);
+      tick = !tick;
+    }
+    " />
         </template>
       </template>
 
