@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, ref } from "vue";
+import { ref } from "vue";
 import DateInput from "./form/DateInput.vue";
 import TextInput from "./form/TextInput.vue";
 
@@ -19,35 +19,58 @@ let task = {
 </script>
 
 <template>
-  <form :ref="form" class="addTask" @submit.prevent="(e) => {
-      // add stamps to the task
-      task.stamp = new Date().valueOf();
+  <form
+    :ref="form"
+    class="addTask"
+    @submit.prevent="
+      (e) => {
+        // add stamps to the task
+        task.stamp = new Date().valueOf();
 
-      addTask(task);
+        addTask(task);
 
-      // reset task value
-      task = {
-        title: '',
-        desc: '',
-        date: '',
-        completed: false,
-        stamp: '',
-      };
+        // reset task value
+        task = {
+          title: '',
+          desc: '',
+          date: '',
+          completed: false,
+          stamp: '',
+        };
 
-      e.target.reset();
-    }
-    ">
+        e.target.reset();
+      }
+    "
+  >
     <!-- title input -->
-    <TextInput :val="task.title" :update="(e) => (task.title = e.target.value)" label="" placeholder="Title" name="title"
-      variant="center" required />
+    <TextInput
+      :val="task.title"
+      :update="(e) => (task.title = e.target.value)"
+      label=""
+      placeholder="Title"
+      name="title"
+      variant="center"
+      required
+    />
     <!-- descirption input -->
-    <TextInput :val="task.desc" :update="(e) => (task.desc = e.target.value)" label="" placeholder="Description"
-      name="desc" variant="center" />
+    <TextInput
+      :val="task.desc"
+      :update="(e) => (task.desc = e.target.value)"
+      label=""
+      placeholder="Description"
+      name="desc"
+      variant="center"
+    />
 
     <div class="controls">
       <!-- date input -->
-      <DateInput :val="task.date" :update="(e) => (task.date = e.target.value)" label="Due date" variant="center"
-        name="dueDate" />
+      <DateInput
+        :val="task.date"
+        :update="(e) => (task.date = e.target.value)"
+        label="Due date"
+        variant="center"
+        name="dueDate"
+      />
       <!-- submit button -->
       <button type="submit">Add task</button>
     </div>
